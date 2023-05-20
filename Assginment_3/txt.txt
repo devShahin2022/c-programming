@@ -1,0 +1,34 @@
+Pass by value : Pass by value means call a function with just value of varriable not address.As a result, 
+if you redeclare inside the function yet our main function varriable value does't change.So, it means copy a value from main function and send to our custom function.
+
+Pass by reference  : Pass by reference means call a function with address of varriable.As a result, 
+You can something your main function varriable like redeclare.You can all controls your main function varriable inside custom function.
+
+Below two example , first pass by value and second pass by reference
+
+#include<stdio.h>
+int pass_by_value(int num){
+    num = 20;
+    return num;
+}
+int main(){
+    int userVal = 50;
+    int res = pass_by_value(userVal);
+
+    printf("%d\n", res); // redeclare userVal from pass_by_value function
+    printf("%d\n", userVal); 
+    return 0;
+}
+
+
+#include<stdio.h>
+int pass_by_reference(int*uservalAddr){
+    *uservalAddr = 100;
+    return *uservalAddr;
+}
+int main(){
+    int userVal = 50;
+    printf("%d \n",pass_by_reference(&userVal)); // user value change here
+    printf("%d \n",userVal);
+    return 0;
+}
